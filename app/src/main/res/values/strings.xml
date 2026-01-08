@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">Sahlent</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_qibla">Qibla</string>
+    <string name="nav_zakat">Zakat</string>
+    <string name="nav_settings">Settings</string>
+    
+    <!-- Prayer Names -->
+    <string name="prayer_fajr">Fajr</string>
+    <string name="prayer_sunrise">Sunrise</string>
+    <string name="prayer_dhuhr">Dhuhr</string>
+    <string name="prayer_asr">Asr</string>
+    <string name="prayer_maghrib">Maghrib</string>
+    <string name="prayer_isha">Isha</string>
+    
+    <!-- Home Screen -->
+    <string name="next_prayer">Next Prayer</string>
+    <string name="auto_silent">Auto Silent</string>
+    <string name="auto_silent_enabled">Your phone will be silenced during prayer times</string>
+    <string name="auto_silent_disabled">Auto-silent is disabled</string>
+    <string name="location_unknown">Location Unknown</string>
+    
+    <!-- Tasbih -->
+    <string name="tasbih">Tasbih</string>
+    <string name="tasbih_reset">Reset</string>
+    <string name="tasbih_reset_confirm">Reset counter to 0?</string>
+    <string name="tasbih_target_reached">Target reached!</string>
+    <string name="tasbih_tap_to_count">Tap to count</string>
+    
+    <!-- Qibla -->
+    <string name="qibla_compass">Qibla Compass</string>
+    <string name="qibla_direction">Qibla Direction</string>
+    <string name="qibla_calibrate">Calibrate compass by moving your phone in a figure-8 pattern</string>
+    <string name="qibla_degrees">%1$.1f°</string>
+    
+    <!-- Settings -->
+    <string name="settings_calculation_method">Calculation Method</string>
+    <string name="settings_silent_duration">Silent Duration</string>
+    <string name="settings_silent_duration_minutes">%1$d minutes</string>
+    <string name="settings_prayers">Prayer Settings</string>
+    <string name="settings_enable_for">Enable auto-silent for %1$s</string>
+    <string name="settings_dnd_permission">Do Not Disturb Permission</string>
+    <string name="settings_dnd_granted">Permission granted</string>
+    <string name="settings_dnd_required">Permission required - tap to grant</string>
+    <string name="settings_about">About</string>
+    <string name="settings_about_description">Sahlent is a Sadaqah Jariyah project. Free, ad-free, and open source.</string>
+    
+    <!-- Calculation Methods -->
+    <string name="method_mwl">Muslim World League</string>
+    <string name="method_isna">ISNA (North America)</string>
+    <string name="method_egypt">Egyptian General Authority</string>
+    <string name="method_makkah">Umm al-Qura (Makkah)</string>
+    <string name="method_karachi">University of Karachi</string>
+    <string name="method_tehran">Institute of Geophysics, Tehran</string>
+    <string name="method_jafari">Shia Ithna-Ashari (Jafari)</string>
+    
+    <!-- Permissions -->
+    <string name="permission_location_title">Location Permission</string>
+    <string name="permission_location_rationale">Location is needed to calculate accurate prayer times for your area and determine Qibla direction.</string>
+    <string name="permission_grant">Grant Permission</string>
+    
+    <!-- Errors -->
+    <string name="error_loading_times">Unable to load prayer times</string>
+    <string name="error_no_location">Location unavailable</string>
+    <string name="error_retry">Retry</string>
+    
+    <!-- Common -->
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+</resources>

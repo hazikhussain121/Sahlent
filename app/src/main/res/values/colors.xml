@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors - Deep Teal/Emerald Islamic Theme -->
+    <color name="primary">#00695C</color>
+    <color name="primary_dark">#004D40</color>
+    <color name="primary_light">#4DB6AC</color>
+    
+    <!-- Secondary - Gold/Amber accent -->
+    <color name="secondary">#FFC107</color>
+    <color name="secondary_dark">#FFA000</color>
+    
+    <!-- Background -->
+    <color name="background_dark">#0D1F1C</color>
+    <color name="background_light">#F5F5F5</color>
+    <color name="surface_dark">#1A2F2A</color>
+    <color name="surface_light">#FFFFFF</color>
+    
+    <!-- Text -->
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_secondary_dark">#B2DFDB</color>
+    <color name="text_primary_light">#212121</color>
+    <color name="text_secondary_light">#757575</color>
+    
+    <!-- Prayer card colors -->
+    <color name="prayer_fajr">#3F51B5</color>
+    <color name="prayer_sunrise">#FF9800</color>
+    <color name="prayer_dhuhr">#2196F3</color>
+    <color name="prayer_asr">#4CAF50</color>
+    <color name="prayer_maghrib">#E91E63</color>
+    <color name="prayer_isha">#673AB7</color>
+    
+    <!-- Tasbih -->
+    <color name="tasbih_circle">#00897B</color>
+    <color name="tasbih_text">#FFFFFF</color>
+</resources>

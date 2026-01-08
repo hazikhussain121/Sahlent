@@ -1,0 +1,21 @@
+# Built files
+*.apk
+*.aab
+*.ap_
+
+# Gradle
+.gradle/
+build/
+.kotlin/
+
+# Local config
+local.properties
+*.jks
+*.keystore
+
+# IDE
+.idea/
+*.iml
+
+# Other
+.DS_Store
