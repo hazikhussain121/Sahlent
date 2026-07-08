@@ -18,6 +18,8 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class SilentModeService : Service() {
+    // foreground service for silent mode during prayers
+    // god i hate foreground services, so much boilerplate
     
     @Inject
     lateinit var dndManager: DndManager
@@ -97,7 +99,7 @@ class SilentModeService : Service() {
     
     companion object {
         private const val CHANNEL_ID = "silent_mode_channel"
-        private const val NOTIFICATION_ID = 1001
+        private const val NOTIFICATION_ID = 1001 // random id, doesnt conflict with anything
         const val ACTION_START_SILENT = "com.sahlent.START_SILENT"
         const val ACTION_STOP_SILENT = "com.sahlent.STOP_SILENT"
         const val EXTRA_PRAYER_NAME = "prayer_name"

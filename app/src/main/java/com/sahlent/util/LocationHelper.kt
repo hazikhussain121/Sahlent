@@ -20,6 +20,8 @@ import kotlin.coroutines.resume
 class LocationHelper @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
+    // location stuff - uses google play services
+    // dealing with location permissions is always a pain
     private val fusedLocationClient: FusedLocationProviderClient =
         LocationServices.getFusedLocationProviderClient(context)
     
@@ -34,10 +36,12 @@ class LocationHelper @Inject constructor(
             ).addOnSuccessListener { location ->
                 continuation.resume(location)
             }.addOnFailureListener {
-                // Try to get last known location as fallback
+                // current location failed, try last known as fallback
+                // this happens sometimes when gps is off
                 fusedLocationClient.lastLocation.addOnSuccessListener { lastLocation ->
                     continuation.resume(lastLocation)
                 }.addOnFailureListener {
+                    // welp, no location at all
                     continuation.resume(null)
                 }
             }
@@ -67,6 +71,7 @@ class LocationHelper @Inject constructor(
                 }
             }
         } catch (e: Exception) {
+            // geocoder can fail for various reasons, just return null
             null
         }
     }

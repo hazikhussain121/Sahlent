@@ -1,8 +1,7 @@
 package com.sahlent.data.model
 
-/**
- * Represents a single prayer with its name and time
- */
+// prayer data models
+
 data class Prayer(
     val name: PrayerName,
     val time: String, // HH:mm format
@@ -36,7 +35,7 @@ data class DailyPrayers(
     
     fun getNextPrayer(currentTimeMillis: Long): Prayer? {
         return asList()
-            .filter { it.name != PrayerName.SUNRISE } // Sunrise is not a prayer
+            .filter { it.name != PrayerName.SUNRISE } // sunrise isnt actually a prayer
             .firstOrNull { it.timeInMillis > currentTimeMillis }
     }
     
@@ -71,10 +70,8 @@ enum class CalculationMethod(val id: Int, val displayName: String) {
     }
 }
 
-/**
- * Juristic method for Asr calculation (School of thought)
- * This affects the Asr prayer time specifically
- */
+// madhab/school of thought - affects asr time
+// might add more madhabs later if theres demand
 enum class Madhab(val id: Int, val displayName: String, val description: String) {
     /**
      * Standard method used by Shafi'i, Maliki, and Hanbali schools

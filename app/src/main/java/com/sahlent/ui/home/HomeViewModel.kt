@@ -1,5 +1,7 @@
 package com.sahlent.ui.home
 
+// viewmodel for home screen - handles prayer times, tasbih, settings
+
 import android.Manifest
 import android.app.NotificationManager
 import android.content.Context
@@ -57,6 +59,7 @@ class HomeViewModel @Inject constructor(
         loadSettings()
         checkPermissions()
         startCountdownTimer()
+        // FIXME: should probably handle timezone changes at some point
     }
     
     private fun loadSettings() {
@@ -97,6 +100,7 @@ class HomeViewModel @Inject constructor(
             
             try {
                 val location = locationHelper.getLastLocation()
+                // Log.d("HomeVM", "got location: $location")
                 if (location != null) {
                     val method = settingsDataStore.calculationMethod.first()
                     val madhab = settingsDataStore.madhab.first()
@@ -134,11 +138,13 @@ class HomeViewModel @Inject constructor(
         }
     }
     
+    // countdown timer - updates every second
+    // TODO: maybe pause when app is in background to save battery?
     private fun startCountdownTimer() {
         viewModelScope.launch {
             while (true) {
                 updateCountdown()
-                delay(1000)
+                delay(1000) // 1 sec
             }
         }
     }
@@ -174,8 +180,10 @@ class HomeViewModel @Inject constructor(
             val newCount = settingsDataStore.incrementTasbih()
             val target = _uiState.value.tasbihTarget
             
+            // show celebration when target reached
             if (newCount == target) {
                 _uiState.value = _uiState.value.copy(showTargetReached = true)
+                // maybe add sound effect here later?
             }
         }
     }

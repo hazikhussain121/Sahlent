@@ -31,6 +31,32 @@ A lightweight, ad-free Android app that automatically silences your phone during
 2. Sync Gradle
 3. Run on device/emulator
 
+```bash
+# or from command line
+./gradlew assembleDebug
+```
+
+## Known Issues
+
+- Qibla compass may be less accurate on some devices (depends on magnetometer quality)
+- First location fetch can take a few seconds on some phones
+- Prayer times might be slightly off in extreme latitudes (+/- 65°)
+
+If you find any bugs, feel free to open an issue!
+
+## Contributing
+
+PRs are welcome! Just make sure to:
+- Follow the existing code style
+- Test on a real device if possible
+- Keep commits clean and focused
+
+## Acknowledgments
+
+- [Aladhan API](https://aladhan.com/prayer-times-api) for prayer times data
+- Material Design icons
+- The Muslim developer community for inspiration
+
 ## License
 
 MIT License - Free for everyone to use and modify.
@@ -38,3 +64,4 @@ MIT License - Free for everyone to use and modify.
 ---
 
 *"When a person dies, his deeds come to an end except for three: Sadaqah Jariyah (ongoing charity), knowledge which is beneficial, or a righteous child who prays for him."* - Sahih Muslim
+

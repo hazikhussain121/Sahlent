@@ -17,6 +17,8 @@ import javax.inject.Singleton
 class PrayerRepository @Inject constructor(
     private val api: AladhanApi
 ) {
+    // simple in-memory cache for prayer times
+    // TODO: add proper caching with Room later if needed
     private var cachedPrayers: DailyPrayers? = null
     private var cachedDate: String? = null
     private var cachedLocation: Pair<Double, Double>? = null
@@ -41,15 +43,18 @@ class PrayerRepository @Inject constructor(
             val response = api.getPrayerTimes(timestamp, latitude, longitude, method.id, madhab.id)
             
             if (response.code == 200) {
+                // Log.d("PrayerRepo", "API response: ${response.data}")
                 val prayers = mapToDailyPrayers(response.data.timings, response.data.date.readable, response.data.date.hijri.date)
                 cachedPrayers = prayers
                 cachedDate = today
                 cachedLocation = latitude to longitude
                 Result.success(prayers)
             } else {
+                // api error, log it
                 Result.failure(Exception("API error: ${response.status}"))
             }
         } catch (e: Exception) {
+            // network error probably
             Result.failure(e)
         }
     }
@@ -84,6 +89,7 @@ class PrayerRepository @Inject constructor(
         // Time comes as "HH:mm (TZ)" - extract just HH:mm
         val time = timeString.split(" ").first()
         val parts = time.split(":")
+        // idk why aladhan sometimes sends weird formats but this handles it
         val hour = parts[0].toIntOrNull() ?: 0
         val minute = parts[1].toIntOrNull() ?: 0
         

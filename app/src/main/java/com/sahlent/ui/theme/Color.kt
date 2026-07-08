@@ -2,7 +2,10 @@ package com.sahlent.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Primary - Rich Emerald Islamic Theme with depth
+// app colors - mostly picked from material color tool
+// tried to keep it islamic/calm vibes
+
+// Primary - emerald green (main app color)
 val Primary = Color(0xFF00897B)
 val PrimaryDark = Color(0xFF00695C)
 val PrimaryLight = Color(0xFF4DB6AC)
@@ -15,9 +18,10 @@ val SecondaryLight = Color(0xFFFFE082)
 val GoldShimmer = Color(0xFFFFE57F)
 val GoldGlow = Color(0x40FFD54F)
 
-// Tertiary - Royal Purple accent
+// Tertiary - purple accent (not used much rn but keeping it)
 val Tertiary = Color(0xFF7C4DFF)
 val TertiaryGlow = Color(0x407C4DFF)
+// val TertiaryAlt = Color(0xFF651FFF) // tried this, too bright
 
 // Dark theme backgrounds with depth
 val BackgroundDark = Color(0xFF0A1612)
@@ -56,11 +60,11 @@ val PrayerMaghribGlow = Color(0x40EC407A)
 val PrayerIsha = Color(0xFF7E57C2)
 val PrayerIshaGlow = Color(0x407E57C2)
 
-// Tasbih - Premium teal with glow
-val TasbihCircle = Color(0xFF26A69A)
-val TasbihCirclePressed = Color(0xFF00897B)
-val TasbihGlow = Color(0x6026A69A)
-val TasbihRing = Color(0xFF80CBC4)
+// Tasbih counter colors
+val TasbihCircle = Color(0xFF26A69A)       // main circle
+val TasbihCirclePressed = Color(0xFF00897B) // when pressed
+val TasbihGlow = Color(0x6026A69A)          // glow effect
+val TasbihRing = Color(0xFF80CBC4)          // outer ring (unused rn)
 
 // Glassmorphism colors
 val GlassWhite = Color(0x20FFFFFF)

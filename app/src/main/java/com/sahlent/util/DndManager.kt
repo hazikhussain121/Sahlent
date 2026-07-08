@@ -10,6 +10,8 @@ import javax.inject.Singleton
 class DndManager @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
+    // handles turning on/off do not disturb mode
+    // tested on samsung and pixel phones, seems to work fine
     private val notificationManager: NotificationManager =
         context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     
@@ -38,9 +40,7 @@ class DndManager @Inject constructor(
         }
     }
     
-    /**
-     * Enable priority only mode - allows alarms and priority notifications
-     */
+    // priority mode - not used rn but keeping it for future
     fun enablePriorityMode() {
         if (hasPermission()) {
             notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_PRIORITY)

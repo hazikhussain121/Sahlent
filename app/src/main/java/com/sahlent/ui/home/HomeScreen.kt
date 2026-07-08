@@ -1,5 +1,8 @@
 package com.sahlent.ui.home
 
+// main home screen - shows prayer times, tasbih counter etc
+// TODO: maybe split this file later, its getting kinda big
+
 import android.Manifest
 import android.content.Context
 import android.content.Intent
@@ -118,7 +121,10 @@ fun HomeScreen(
         )
     }
     
+    // Log.d("HomeScreen", "uiState updated: ${uiState.nextPrayer?.name}")
+    
     // Target reached dialog with celebration
+    // maybe add confetti animation here someday?
     if (uiState.showTargetReached) {
         AlertDialog(
             onDismissRequest = { viewModel.dismissTargetReached() },
@@ -227,6 +233,7 @@ fun HomeScreen(
         }
         
         // Prayer Times List with staggered animation
+        // this animation delay thing took forever to get right
         uiState.prayers?.asList()?.let { prayers ->
             itemsIndexed(
                 items = prayers,
@@ -435,7 +442,10 @@ fun PremiumTasbihCounter(
         label = "scale"
     )
     
-    // Pulsing glow effect
+    /* 
+     * Pulsing glow effect - makes the tasbih button feel more "alive"
+     * tried different durations, 1500ms feels best
+     */
     val infiniteTransition = rememberInfiniteTransition(label = "tasbihGlow")
     val pulseScale by infiniteTransition.animateFloat(
         initialValue = 1f,
@@ -564,6 +574,7 @@ fun PremiumTasbihCounter(
                             indication = null
                         ) {
                             haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                            // vibration stuff is so fragmented across android versions smh
                             val vibrator = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                                 val vibratorManager = context.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
                                 vibratorManager.defaultVibrator
@@ -571,6 +582,7 @@ fun PremiumTasbihCounter(
                                 @Suppress("DEPRECATION")
                                 context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
                             }
+                            // 25ms feels snappy, 50ms was too long
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                 vibrator.vibrate(VibrationEffect.createOneShot(25, VibrationEffect.DEFAULT_AMPLITUDE))
                             } else {
